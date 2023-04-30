@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Stopwatch</string>
 
+    <!-- Main -->
+    <string name="start_or_pause">Start or pause</string>
+    <string name="reset">Reset</string>
 </resources>
