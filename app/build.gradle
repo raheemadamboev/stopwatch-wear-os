@@ -1,0 +1,91 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'xyz.teamgravity.stopwatch'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "xyz.teamgravity.stopwatch"
+        minSdk 30
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.4.3'
+    }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    // compose
+    implementation platform('androidx.compose:compose-bom:2023.04.01')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+
+    // compose wear
+    implementation "androidx.wear.compose:compose-material:1.1.2"
+    implementation "androidx.wear.compose:compose-foundation:1.1.2"
+
+    // compose activity
+    implementation 'androidx.activity:activity-compose:1.7.1'
+
+    // compose horologist
+    implementation 'com.google.android.horologist:horologist-compose-tools:0.4.4'
+    implementation 'com.google.android.horologist:horologist-tiles:0.4.4'
+
+    // compose viewmodel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
+
+    // compose lifecycle
+    implementation "androidx.lifecycle:lifecycle-runtime-compose:2.6.1"
+
+    // tiles
+    implementation "androidx.wear.tiles:tiles:1.1.0"
+    implementation "androidx.wear.tiles:tiles-material:1.1.0"
+
+    // watchface
+    implementation 'androidx.wear.watchface:watchface-complications-data-source-ktx:1.1.1'
+
+    // wearable
+    implementation 'com.google.android.gms:play-services-wearable:18.0.0'
+
+    // core
+    implementation 'androidx.core:core-ktx:1.10.0'
+
+    // lifecycle
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
+}
